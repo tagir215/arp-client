@@ -29,7 +29,7 @@ const ProductGrid = memo(({products, computerInfo, sortOption}) => {
             })
         }
         setProductsState(sortedProducts);
-    },[sortOption])
+    },[sortOption,products])
 
     return (
         <ul className="flex flex-col items-center gap-4 max-w-screen-xl min-h-screen mb-20 mx-auto">

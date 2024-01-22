@@ -1,6 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import {baseURLServer } from '../config';
 import ProductGrid from "../components/ProductGrid";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -34,8 +33,11 @@ const GridPage = memo(() => {
 
     useEffect(() => {
         console.log("setting info ",computerInfo)
-        const fetchComps = async () =>{
-            const result = await fetchComputers(computerInfo.type,computerInfo.tier,computerInfo.os) ;
+        const fetchComps = async () => {
+            if (Object.keys(computerInfo).length <= 0) {
+                return;
+            }
+            let result = await fetchComputers(computerInfo.type,computerInfo.tier,computerInfo.os);
             dispatch(setProducts(result));
         }
         fetchComps();

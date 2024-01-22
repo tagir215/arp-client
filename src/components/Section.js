@@ -5,12 +5,12 @@ const Section = memo(() => {
         <section className="text-secondary bg-background">
             <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div className="max-w-xl">
-                    <h2 className="text-3xl font-bold sm:text-4xl">What makes us special</h2>
+                    <h2 className="text-3xl font-bold sm:text-4xl">African Rock Python</h2>
 
                     <p className="mt-4 text-gray-300">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolores iure fugit totam
-                        iste obcaecati. Consequatur ipsa quod ipsum sequi culpa delectus, cumque id tenetur
-                        quibusdam, quos fuga minima.
+                        "African Rock Python" was made for learning purposes of creating a fullstack application
+                        that uses most of the commonly used Design Patterns. The design patterns were implemented 
+                        first and the application was built on top of it.
                     </p>
                 </div>
 
@@ -38,11 +38,12 @@ const Section = memo(() => {
                         </span>
 
                         <div>
-                            <h2 className="text-lg font-bold">Lorem, ipsum dolor.</h2>
+                            <h2 className="text-lg font-bold">Factories</h2>
 
                             <p className="mt-1 text-sm text-gray-300">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+                                Abstract Method Factory is used to create different types of computer builds. 
+                                The different implementatioin of the Abstract factory use create different ComputerInfo
+                                objects that will be used to build various tiers of computers by budget.
                             </p>
                         </div>
                     </div>
@@ -70,11 +71,11 @@ const Section = memo(() => {
                         </span>
 
                         <div>
-                            <h2 className="text-lg font-bold">Lorem, ipsum dolor.</h2>
+                            <h2 className="text-lg font-bold">Strategies</h2>
 
                             <p className="mt-1 text-sm text-gray-300">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+                                In StrategyRegistry there are different Strategy pattern implementations that will use 
+                                appropriate Factories to build correct tier Computer Builds. 
                             </p>
                         </div>
                     </div>
@@ -102,11 +103,12 @@ const Section = memo(() => {
                         </span>
 
                         <div>
-                            <h2 className="text-lg font-bold">Lorem, ipsum dolor.</h2>
+                            <h2 className="text-lg font-bold">Records</h2>
 
                             <p className="mt-1 text-sm text-text2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+                                Application uses lot's of DTOs such as ComputerInfo, SelectedComponents and ComponentCollections,
+                                since multiple classes depend on this information.
+
                             </p>
                         </div>
                     </div>
@@ -134,11 +136,16 @@ const Section = memo(() => {
                         </span>
 
                         <div>
-                            <h2 className="text-lg font-bold">Lorem, ipsum dolor.</h2>
+                            <h2 className="text-lg font-bold">Component Selecting</h2>
 
                             <p className="mt-1 text-sm text-text2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+                                AbstractComputerFactory will use the complicated ComponentSelector 
+                                logic to select appropriate components. The Component Selector has implementations 
+                                for all different component types seperatedly since the selection process might 
+                                change in the future. ComponentFilterer will filter out Components that are too expensive
+                                for the budget and also, components that are uncompatible with the ComponenEntities that 
+                                have implemented the "CompatibilityComponent" interface.
+
                             </p>
                         </div>
                     </div>
@@ -166,11 +173,12 @@ const Section = memo(() => {
                         </span>
 
                         <div>
-                            <h2 className="text-lg font-bold">Lorem, ipsum dolor.</h2>
+                            <h2 className="text-lg font-bold">Cart</h2>
 
                             <p className="mt-1 text-sm text-gray-300">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+                                In the application there's a shopping cart style saving system, that
+                                was mainly implemented for an excuse to implement more Design patterns such as
+                                Facade, State and Observer.
                             </p>
                         </div>
                     </div>
@@ -198,11 +206,14 @@ const Section = memo(() => {
                         </span>
 
                         <div>
-                            <h2 className="text-lg font-bold">Lorem, ipsum dolor.</h2>
+                            <h2 className="text-lg font-bold">Security</h2>
 
                             <p className="mt-1 text-sm text-text2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cumque tempore est ab
-                                possimus quisquam reiciendis tempora animi! Quaerat, saepe?
+                                For authentication I added Spring Security with basic JWT authentication 
+                                setup. Technically a chain of responsibility 
+                                Design Pattern was also added to the appliction, so the goal of using all of the Patterns 
+                                was almost achieved.
+                                I
                             </p>
                         </div>
                     </div>

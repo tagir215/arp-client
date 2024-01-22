@@ -1,8 +1,18 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { checkAuthenticationStatus } from '../utils/AuthApi';
 
 const Header = memo((props) => {
 
+    const [authStatus, setAuthStatus] = useState(false);
+    
+    useEffect(() => {
+        async function checkStatus() {
+            const auth = await checkAuthenticationStatus();
+            setAuthStatus(auth);
+        }
+        checkStatus();
+    },[]);
 
 
   return (
@@ -38,19 +48,19 @@ const Header = memo((props) => {
                             <li>
                                 <Link
                                     className="text-text2 transition hover:text-text2"
-                                    to={"/about"}
+                                    to="/Grid?type=basic&tier=budget&os=windows"
                                 >
                                     {" "}
-                                    About{" "}
+                                    App{" "}
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     className="text-text2 transition hover:text-text2"
-                                    to="/cart"
+                                    to={"/about"}
                                 >
                                     {" "}
-                                    Cart{" "}
+                                    About{" "}
                                 </Link>
                             </li>
                             <li>
@@ -65,44 +75,62 @@ const Header = memo((props) => {
                         </ul>
                     </nav>
                     <div className="flex items-center gap-4">
-                        <div className="sm:flex sm:gap-4">
-                            <Link
-                                className="block rounded-md bg-secondary px-5 py-2.5 text-sm font-medium text-primary transition hover:bg-secondary"
-                                to="/login"
-                            >
-                                Login
-                            </Link>
-                            <Link
-                                className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-secondary transition hover:text-secondary sm:block"
-                                to="/registration"
-                            >
-                                Register
-                            </Link>
+                            <div className="sm:flex sm:gap-4 items-center">
+                                <Link
+                                    className=""
+                                    to="/Cart"
+                                >
+                                    <img src={process.env.PUBLIC_URL + "/cart-logo.png"} alt="" className="w-8 filter invert"></img>
+                              </Link>
+                              {!authStatus && 
+                                  <>
+                                <Link
+                                    className="block rounded-md bg-secondary px-5 py-2.5 text-sm font-medium text-primary transition hover:bg-secondary"
+                                    to="/login"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-secondary transition hover:text-secondary sm:block"
+                                    to="/registration"
+                                >
+                                    Register
+                                </Link>
+                                  </>
+                                  }
+                                {authStatus &&
+                                    <Link
+                                        className=""
+                                        to="/User"
+                                    >
+                                        <img src={process.env.PUBLIC_URL + "/user-logo.png"} alt="" className="w-8"></img>
+                                    </Link>
+                                }
+                            </div>
+                            <button className="block rounded bg-gray-100 p-2.5 text-text2 transition hover:text-text2 md:hidden">
+                                <span className="sr-only">Toggle menu</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={2}
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M4 6h16M4 12h16M4 18h16"
+                                    />
+                                </svg>
+                            </button>
                         </div>
-                        <button className="block rounded bg-gray-100 p-2.5 text-text2 transition hover:text-text2 md:hidden">
-                            <span className="sr-only">Toggle menu</span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                            </svg>
-                        </button>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <div className="h-16 bg-opacity-0"></div>
-    </>
+            <div className="h-16 bg-opacity-0"></div>
+        </>
 
     )
 })
