@@ -1,9 +1,12 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import ComputerFrom from '../components/ComputerFrom';
 import Footer from '../components/Footer';
+import { checkAuthenticationStatus } from '../utils/AuthApi';
 
 const HomePage = memo(() => {
+
+
   return (
     <div>
         <Header/>

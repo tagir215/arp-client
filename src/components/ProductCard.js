@@ -63,10 +63,10 @@ const ProductCard = memo(({ product, icons, computerInfo }) => {
                         </a>
                     })}
                 </div>
-                <div className="bg-secondary bg-opacity-25 flex max-h-12 rounded-xl items-center px-4">
+                <div className="bg-secondary bg-opacity-10 flex max-h-12 rounded-xl items-center px-4">
                     <div className="flex items-end">
-                        <span className="text-secondary text-md mr-2">{"Total: "}</span>
-                        <span className="text-secondary text-3xl">{product.combinedPrice + "$"}</span>
+                        <span className="text-secondary text-md mr-1">{"Total: "}</span>
+                        <span className="text-secondary text-xl">{product.combinedPrice + "$"}</span>
                     </div>
                 </div>
             </div>
